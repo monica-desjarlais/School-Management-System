@@ -1,0 +1,49 @@
+<section id="why-us">
+  <div class="container">
+    <header class="section-header">
+      <h1 class="center">Log in</h1>
+    </header>
+
+
+<div id="user_form">
+  <div class ='row'>
+     <div class ='col-xs-10'>
+  <%= form_for(:logins, :html => {class: "form-horizontal", role: "form", autocomplete: "off"}) do |f| %>
+
+
+<!-- EMAIL-->
+ <div class="form-group"> <!--Bootstrap class for a form group-->
+    <div class= "col-sm-2 control-label"> <!-- description label-->
+  <%= f.label :email %>
+     </div> <!-- end of description label-->
+  <div class=" col-sm-10" > <!-- description input-->
+  <%= f.email_field :email, class: "form-control", id: "body-article", placeholder:"Enter email" %>
+  </div>
+ </div> <!-- end of description group-->
+
+ <div class="form-group">
+    <div class= "col-sm-2 control-label"> <!-- password label-->
+  <%= f.label :password %> <!-- :password = virtual attribute for password_digest -->
+     </div> <!-- end of password label-->
+
+  <div class=" col-sm-10" > <!-- password input-->
+  <%= f.password_field :password, class: "form-control", id: "body-article", placeholder:"Enter your password" %>
+  </div>
+ </div> <!-- end of password group-->
+
+
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10 bt-article">
+  <%= f.submit "Login", class: 'btn btn-primary btn-lg' %>
+  </div>
+</div>
+  <% end %>
+  <div class="col-sm-offset-2 col-sm-10 center">
+    <%= link_to "Cancel and return to articles listing", students_path  %>
+  </div>
+   </div>
+  </div>
+</div>
+
+</div>  <!--container -->
+</section>  <!--section-->

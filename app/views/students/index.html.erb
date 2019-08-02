@@ -1,0 +1,32 @@
+<!--==========================
+    Students Section
+  ============================-->
+  <section id="why-us">
+    <div class="container">
+      <header class="section-header">
+        <h1 class="center">Students Directory</h1>
+
+      </header>
+
+
+      <div class="row row-eq-height justify-content-center">
+        <% @students.each do |student| %>
+          <div class="col-lg-4 mb-4 space">
+              <div class="card wow student">
+                 <div class="card-body">
+                <span class="card-title name"> Name: <strong><%= student.name %></strong></span><br>
+                <span class="smaller"> Email: <strong><%=student.email %></strong> </span><br>
+                  <span class="smaller">Course Enrollments: <strong>None</strong></span>
+                  </div> <!-- card body-->
+                <div class ="infos">
+                  <%= link_to "View profile", student_path(student), class: "center readmore" %>
+
+
+                </div> <!-- card wow-->
+            </div> <!-- col-->
+
+        </div><!-- row-->
+        <% end %>
+
+      </div> <!-- container-->
+      </section>

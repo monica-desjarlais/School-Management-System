@@ -1,0 +1,68 @@
+<%= render 'shared/errors', obj: @student %>
+
+<section id="why-us">
+  <div class="container">
+    <header class="section-header">
+      <h1 class="center"><%=@student.new_record? ? "Sign up" : "Edit Your Profile" %></h1>
+    </header>
+
+
+<div id="user_form">
+  <div class ='row'>
+     <div class ='col-xs-10'>
+  <%= form_for(@student, :html => {class: "form-horizontal", role: "form", autocomplete: "off"}) do |f| %>
+
+  <!-- TITLE-->
+  <div class="form-group"> <!--Bootstrap class for the a form group-->
+    <div class= "control-label col-sm-2"> <!-- title label-->
+  <%= f.label :name %>
+  </div>
+  <div class="col-sm-10" > <!-- title input-->
+  <%= f.text_field :name, class: "form-control", placeholder:"Enter your name", autofocus: true %>
+   </div>  <!-- end of title input-->
+  </div> <!-- end of title group-->
+
+<!-- DESCRIPTION-->
+ <div class="form-group"> <!--Bootstrap class for a form group-->
+    <div class= "col-sm-2 control-label"> <!-- description label-->
+  <%= f.label :email %>
+     </div> <!-- end of description label-->
+  <div class=" col-sm-10" > <!-- description input-->
+  <%= f.email_field :email, class: "form-control", id: "body-article", placeholder:"Enter email" %>
+  </div>
+ </div> <!-- end of description group-->
+
+ <div class="form-group">
+    <div class= "col-sm-2 control-label"> <!-- password label-->
+  <%= f.label :password %> <!-- :password = virtual attribute for password_digest -->
+     </div> <!-- end of password label-->
+
+  <div class=" col-sm-10" > <!-- password input-->
+  <%= f.password_field :password, class: "form-control", id: "body-article", placeholder:"Choose a password" %>
+  </div>
+ </div> <!-- end of password group-->
+
+ <div class="form-group">
+    <div class= "col-sm-2 control-label"> <!-- pass confirmation label-->
+  <%= f.label :password_confirmation %>
+     </div> <!-- end of password confirmation label-->
+ <div class=" col-sm-10" > <!-- password confirmation input-->
+ <%= f.password_field :password_confirmation, class: "form-control", id: "body-article", placeholder:"Confirm your password" %>
+ </div>
+</div> <!-- end of password confirmation group-->
+
+<div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10 bt-article">
+  <%= f.submit(@student.new_record? ? "Sign up" : "Submit changes", class: 'btn btn-primary btn-lg') %>
+  </div>
+</div>
+  <% end %>
+  <div class="col-sm-offset-2 col-sm-10 center">
+    <%= link_to "Cancel and return to articles listing", students_path  %>
+  </div>
+   </div>
+  </div>
+</div>
+
+</div>  <!--container -->
+</section>  <!--section-->

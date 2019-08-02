@@ -1,0 +1,33 @@
+<!--==========================
+    Courses Section
+  ============================-->
+  <section id="why-us">
+    <div class="container">
+      <header class="section-header">
+        <h1 class="center">Our Courses</h1>
+
+      </header>
+
+
+      <div class="row row-eq-height justify-content-center">
+        <% @courses.each do |course| %>
+          <div class="col-lg-4 mb-4 space">
+              <div id="courses" class="card wow bounceInUp">
+                 <div class="card-body">
+                <h5 class="card-title"><%= course.short_name %>: <%=course.name %></h5>
+                  <p><%=course.description %></p>
+                  </div> <!-- card body-->
+                <div class ="infos">
+                  <% if logged_in? && !(current_user.courses.include?(course)) %>
+               <%= link_to "Enroll |", course_enroll_path(course_id: course.id), method: :post, class:"readmore " %>
+                <% end %>
+                <%= link_to "Info", "#", class:"readmore " %>
+
+                </div> <!-- card wow-->
+            </div> <!-- col-->
+
+        </div><!-- row-->
+        <% end %>
+
+      </div> <!-- container-->
+      </section>

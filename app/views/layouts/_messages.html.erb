@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-4, col-xs-offset-2">
+<% flash.each do | name, msg| %>  <!--loop through messages created in controller -->
+<div class= 'alert alert-<%="#{name}" %>'>
+  <!-- name stands for the type of the message'success', or 'danger'(alert-succes) , taken by
+looping through messages created in controller:  flash.each do | name, msg| -->
+
+  <a href="#" class="close" data-dismiss="alert">&#215;</a>
+  <!-- content_tag: Returns an HTML block tag of type name surrounding the content. -->
+  <!--This line is calling the "content_tag" view helper, which will render a string of HTML which will look like this
+<div id="flash_error">this is a message</div>  -->
+<!--if the variable name  has a value of error  and the variable msg  is a string and has the value this is a message
+If msg  is not a string, nothing will be rendered.-->
+
+  <%= content_tag :div, msg, :id => "flash_#{name}" if msg. is_a?(String)%>
+  </div>
+<% end %>
+ </div>
+</div>
